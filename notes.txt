@@ -1,0 +1,181 @@
+what is node.js?
+
+Node.js is a cross-platform, open-source JavaScript runtime environment that can run on Windows, Linux, Unix, macOS, and more.
+Node.js runs on the V8 JavaScript engine, and executes JavaScript code outside a web browser.
+Node.js lets developers use JavaScript to write command line tools and for server-side scripting.
+
+What is npm?
+
+npm is the default package manager for the JavaScript runtime environment Node.js and is included as a recommended feature in the Node.js installer.
+
+
+Gives diffrent package
+
+
+npm init => package.json =>details of projects
+
+
+module => node js code already install
+
+
+package => download from npm
+
+
+dependencies => package and package`s dependencies
+
+
+devdependencies => use only that time when we make an app or any project but after deploy of that project we not use that : npm i nodemon --save-dev
+
+
+scripts => in scripts add coustom scripts and add default scripts PATH
+
+
+For install any package from npm: npm i package_name
+for particular:npm i package_name@version
+
+For uninstall any package from npm: npm uninstall package_name
+
+installed and uninstall package will be see in package.json dependencies.
+
+
+node_modules
+
+dependencies`s dependencies
+
+
+# FileSystem methods
+https://nodejs.org/docs/latest/api/fs.html#fswritefilefile-data-options-callback
+https://nodejs.org/docs/latest/api/fs.html#fsappendfilepath-data-options-callback
+https://nodejs.org/docs/latest/api/fs.html#fsrenameoldpath-newpath-callback
+https://nodejs.org/docs/latest/api/fs.html#fscopyfilesrc-dest-mode-callback
+https://nodejs.org/docs/latest/api/fs.html#fsunlinkpath-callback
+https://nodejs.org/docs/latest/api/fs.html#fsrmpath-options-callback
+https://nodejs.org/docs/latest/api/fs.html#fsmkdirpath-options-callback
+https://nodejs.org/docs/latest/api/fs.html#fsreadfilepath-options-callback
+https://nodejs.org/docs/latest/api/fs.html#fsreaddirpath-options-callback
+
+HTTP
+protocal => rules
+
+http protocal
+
+not possible any connection between user to server and server to user
+
+
+HTTP create server
+https://nodejs.org/docs/latest/api/http.html#httpcreateserveroptions-requestlistener
+
+const http = require('http');
+const server = http.createServer((req,res)=>{
+res.end("hello world!!");
+})
+
+
+server.listen(3000);
+
+express.js
+exprees js is npm package
+
+Framework : work with flow , express js is framework
+manage everuthing from receiving the response and giving the response
+Middleware -> laptop(image) =>=> ||Middleware(somework)|| =>=> (server)Router
+app.use(function(req,res,next)) 
+use() => all req first through this , before router this use will be work
+
+
+next() => after work of use , next for that req accept by routers
+
+working:- get()=>use(,next())=>get(work)
+
+cookies and sessions
+Cookies
+
+Cookies are small pieces of data stored on the client-side (in the browser). They are sent back to the server with each request to maintain state.
+
+
+
+Sessions
+
+Sessions store data on the server side and use a session identifier (usually stored in a cookie) to link the client to the session data on the server.
+
+
+parsers form
+
+
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+ 
+app.use(express.json());
+-Function: Parses JSON-formatted request bodies.
+-Use Case: API requests with JSON payloads.
+
+app.use(express.urlencoded({extended:true}));
+-Function: Parses URL-encoded request bodies.
+-Use Case: Form submissions or requests with URL-encoded data.
+-extended: true: Uses the qs library to parse more complex objects.
+
+
+ejs : frontend look , dynamic and calculation perform, similar to html
+
+
+
+Setup ejs
+
+index.js(app.set('view engine','ejs') => create views folder => in views create index.ejs => for public folder add path in index.js use path.join(_dirname,'public') and create public folder => in public folder create 3 folder 1.stylesheets 2.images 3.javascripts => add path in index.ejs but after public ex. /javascrpits/script.js => javascripts hoin using scripts and css using link. )
+
+
+dynamic routing
+app.get("/profile/:username",function(req,res){
+    res.send("chal raha hai");
+});
+
+using this : , get(_) , _ convert to a variable, and this route is dynamic
+
+
+req.params.username
+
+: => req.params
+
+
+MongoDB
+Data Storage:
+
+That space we can store users infomation(database)
+
+
+Types of Databases:
+
+SQL | NoSQL(not only sql)
+
+
+SQL : data store in tables(we can understand data in form of tables)
+
+
+NoSQL : data stores in object way
+
+
+Mongodb: NoSQL based database
+
+
+
+How many servers in backend?
+
+
+Two servers: 1. Application Server 2. DataBase server
+
+
+1. Application Server : That handles routes and accept request (AS <-> DBS)
+
+
+
+in our A project we have Users data so we have User collection of A, means A project `s database ans in that A project identity that are collections.
+
+
+In user collection we want one user data that called Document
+
+
+CODE                  DATABASE
+---------------------------------------------
+    mongoose.connect  ->  Database create
+    model create      ->  Collection
+    CREATE code       ->  document  
